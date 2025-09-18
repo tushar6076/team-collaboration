@@ -1,0 +1,100 @@
+<RegistrationScreen>:
+    name: "registration"
+    MDScreen:
+        padding: "8dp"
+        spacing: "8dp"
+        MDTopAppBar:
+            id: top_app_bar
+            title: "Add Student"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: app.theme_cls.accent_color
+            pos_hint: {"top": 1}
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.home_button()]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+            height: self.minimum_height
+            pos_hint: {"top": 0.9}
+
+            MDScrollView:
+                scroll_y: 0
+                smooth_scroll_end: 100
+                MDGridLayout:
+                    id: grid_layout
+                    cols: 1
+                    padding: dp(10)
+                    spacing: dp(10)
+                    MDTextField:
+                        id: person_name
+                        hint_text: "Person Name"
+                        helper_text: "Enter the Person's Name"
+                        helper_text_mode: "on_focus"
+                        icon_right: "account"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: root.show_options()
+                    MDTextField:
+                        id: branch_name
+                        hint_text: "Branch Name"
+                        helper_text: "Enter the branch name"
+                        helper_text_mode: "on_focus"
+                        icon_right: "account"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: root.show_options()
+                    MDTextField:
+                        id: day
+                        hint_text: "Day"
+                        helper_text: "Enter the day"
+                        helper_text_mode: "on_focus"
+                        icon_right: "calendar"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: if self.focus: root.day_menu.open()
+                    MDTextField:
+                        id: transaction_date
+                        hint_text: "Transaction Date"
+                        helper_text: "Enter the transaction date"
+                        helper_text_mode: "on_focus"
+                        icon_right: "calendar"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: if self.focus: root.show_date_picker()
+                    MDTextField:
+                        id: amount
+                        hint_text: "Amount"
+                        helper_text: "Enter the amount"
+                        helper_text_mode: "on_focus"
+                        icon_right: "currency-inr"
+                        required: True
+                        input_filter: "float"
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: root.show_options()
+                    MDTextField:
+                        id: transaction_type
+                        hint_text: "Transaction Type"
+                        helper_text: "Enter the transaction type"
+                        helper_text_mode: "on_focus"
+                        icon_right: "swap-horizontal"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: if self.focus: root.transaction_type_menu.open()
+                    MDTextField:
+                        id: received_by
+                        hint_text: "Received By"
+                        helper_text: "Enter Received By"
+                        helper_text_mode: "on_focus"
+                        icon_right: "account"
+                        required: True
+                        size_hint_x: 0.8
+                        pos_hint: {"center_x": 0.5}
+                        on_focus: root.show_options()

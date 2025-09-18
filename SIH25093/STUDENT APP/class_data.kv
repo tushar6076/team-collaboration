@@ -1,0 +1,52 @@
+<ClassDataScreen>:
+    name: "class_data"
+    MDScreen:
+        spacing: "10dp"
+        MDTopAppBar:
+            title: "Student Data"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: app.theme_cls.accent_color
+            pos_hint: {"top": 1}
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.home_button(x)]]
+            MDTextField:
+                id: search_input
+                hint_text: "Search Data...."
+                mode: "round"
+                size_hint_x: 0.8
+                pos_hint: {'center_x': 0.59, 'center_y': 0.95}
+                line_color_normal: app.theme_cls.primary_color
+                opacity: 0
+                on_text: root.search(self, self.text)
+            MDIconButton:
+                id: search_button
+                icon: "magnify"
+                size: 0, 0
+                pos_hint: {"center_x": 0.95, "center_y": 0.95}
+                on_release: root.search_option()
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: "8dp"
+            padding: "8dp"
+            pos_hint: {'top': 0.9}
+            MDRaisedButton:
+                icon: "check"
+                text: "Select All"
+                on_press: root.select_all()
+            MDRaisedButton:
+                icon: "up-down"
+                text: "filter"
+                on_press: root.filer_menu.open()
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+            pos_hint: {'top': 0.8}
+            MDScrollView:
+                scroll_y: 0
+                smooth_scroll_end: 100
+
+                MDList:
+                    id: student_list

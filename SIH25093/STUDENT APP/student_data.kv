@@ -1,0 +1,54 @@
+<StudentDataScreen>:
+    name: "student_data"
+    MDScreen:
+        padding: "8dp"
+        spacing: "8dp"
+        MDTopAppBar:
+            id: top_app_bar
+            title: "Entry Number "
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: app.theme_cls.accent_color
+            pos_hint: {"top": 1}
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.home_button(x)],]
+            right_action_items: [["edit", lambda x: root.edit_data_button()],["delete-forever", lambda x: root.delete_entry()],]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+            height: self.minimum_height
+            pos_hint: {"top": 0.9}
+            MDScrollView:
+                scroll_y: 0
+                smooth_scroll_end: 100
+                MDGridLayout:
+                    id: grip_layout
+                    cols: 1
+                    padding: dp(10)
+                    spacing: dp(10)
+                    MDLabel:
+                        id: person_name
+                        text: "Person Name : "
+                    MDLabel:
+                        id: branch_name
+                        text: "Branch Name : "
+                    MDLabel:
+                        id: day
+                        text: "Day : "
+                    MDLabel:
+                        id: transaction_date
+                        text: "Transaction Date : "
+                    MDLabel:
+                        id: amount
+                        text: "Amount : "
+                    MDTextField:
+                        id: amount_input
+                        text_hint: "Enter Amount"
+                        opacity: 0
+                    MDLabel:
+                        id: transaction_type
+                        text: "Transaction Type : "
+                    MDLabel:
+                        id: received_by
+                        text: "Received By : "

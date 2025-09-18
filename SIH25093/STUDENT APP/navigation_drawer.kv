@@ -1,0 +1,78 @@
+<ItemDrawer>:
+    icon: "account"
+    IconLeftWidget:
+        icon: root.icon
+        on_release: app.root.current = "view_entry"
+
+<Navigation_Drawer@BoxLayout>:
+    name: "nav_drawer"
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "8dp"
+    swipe_edge_with: root.width/4
+    swipe_distance: root.width/1000
+
+    ScrollView:
+        MDList:
+            size_hint_y: None
+            height: "48dp"
+            pos_hint: {"top": 0.92}
+            OneLineIconListItem:
+                text: "Home"
+                on_release:
+                    app.root.current = "home"
+                    app.root.get_screen('home').ids.nav_drawer.set_state("close")
+                IconLeftWidget:
+                    icon: "home"
+            OneLineIconListItem:
+                text: "Student Data"
+                on_release:
+                    app.go_to_students_data()
+                    app.root.get_screen('home').ids.nav_drawer.set_state("close")
+                IconLeftWidget:
+                    icon: "account"
+            OneLineIconListItem:
+                text: "Academics"
+                on_release:
+                    app.academics()
+                IconLeftWidget:
+                    icon: "book"
+            OneLineIconListItem:
+                text: "Department"
+                on_release:
+                    app.department()
+                IconLeftWidget:
+                    icon: "department"
+            OneLineIconListItem:
+                text: "Notice"
+                on_release:
+                    app.notice()
+                IconLeftWidget:
+                    icon: "inbox"
+            OneLineIconListItem:
+                text: "Placement"
+                on_release:
+                    app.placement()
+                IconLeftWidget:
+                    icon: "folder"
+            OneLineIconListItem:
+                text: "Achievements"
+                on_release:
+                    app.achievements()
+                IconLeftWidget:
+                    icon: "star"
+            OneLineIconListItem:
+                text: "Settings"
+                on_release:
+                    app.root.current = "settings"
+                    app.root.get_screen('home').ids.nav_drawer.set_state("close")
+                IconLeftWidget:
+                    icon: "cog"
+
+    MDLabel:
+        text: "Developed by Tushar"
+        font_style: "Caption"
+        size_hint_y: None
+        font_size: "16sp"
+        height: self.texture_size[1]
+        pos_hint: {"center_y": 0.1}

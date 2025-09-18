@@ -1,0 +1,42 @@
+<LoginContent>:
+    orientation: "vertical"
+    spacing: "3dp"
+    size_hint_y: None
+    height: "100dp"
+    MDTextField:
+        id: email
+        hint_text: "Enter your email adress"
+        helper_text: "Example: abc@gmail.com"
+        mode: "line"
+        on_text: app.root.get_screen('home').update_text(self, self.text)
+        on_text_validate: app.root.get_screen('home').login()
+    MDTextField:
+        id: password
+        hint_text: "Enter your email Password"
+        helper_text: ""
+        mode: "line"
+        on_text: app.root.get_screen('home').update_text(self, self.text)
+        on_text_validate: app.root.get_screen('home').login()
+        password: True
+    MDLabel:
+        text: 
+            "[ref=https://kivymd.readthedocs.io/en/latest/][color=0000ff][u]forgot password?[/u][/color][/ref]."
+        markup: True
+        on_ref_press: app.root.get_screen('home').forgot_password()
+
+<ForgotPasswordContent>:
+    orientation: "vertical"
+    spacing: "3dp"
+    size_hint_y: None
+    height: "100dp"
+    MDLabel:
+        text: "We will send you a code on your registered email adress to reset your password."
+        halign: "center"
+    MDTextField:
+        id: email
+        hint_text: "Enter your email adress"
+        helper_text: "Example: abc@gmail.com"
+        mode: "line"
+        on_text: app.root.get_screen('home').update_text(self, self.text)
+        on_text_validate: app.root.get_screen('home').send_reset_link()
+    

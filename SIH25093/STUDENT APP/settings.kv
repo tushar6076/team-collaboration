@@ -1,0 +1,50 @@
+<SettingsScreen>:
+    name: "settings"
+    MDScreen:
+        spacing: "10dp"
+        MDTopAppBar:
+            title: "Settings"
+            md_bg_color: app.theme_cls.primary_color
+            specific_text_color: app.theme_cls.accent_color
+            pos_hint: {"top": 1}
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.home_button(x)]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+            height: self.minimum_height
+            pos_hint: {"top": 0.9}
+            MDScrollView:
+                scroll_y: 0
+                smooth_scroll_end: 100
+                MDGridLayout:
+                    cols: 1
+                    padding: dp(10)
+                    spacing: dp(10)
+                    MDLabel:
+                        text: "Switch Theme Style"
+                    MDSwitch:
+                        id: theme_switch
+                        on_active: app.change_theme_style(self.active)
+                    MDLabel:
+                        text: "Select Theme Color"
+                    MDGridLayout:
+                        id: theme_color_layout
+                        cols: 2
+                        padding: 20
+                        spacing: 25
+                        MDChip:
+                            text: "Blue"
+                            md_bg_color: "#1C86EE"
+                            on_release: app.select_theme_color(self)
+                            active: True
+                        MDChip:
+                            text: "Red"
+                            md_bg_color: "#FF0000"
+                            on_release: app.select_theme_color(self)
+                        MDChip:
+                            text: "LightBlue"
+                            md_bg_color: "#109EFF"
+                            on_release: app.select_theme_color(self)

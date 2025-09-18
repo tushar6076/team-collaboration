@@ -1,0 +1,23 @@
+<HomeScreen>:
+    name: "home"
+    MDNavigationLayout:
+        id: nav_layout
+        MDScreenManager:
+            id: screen_manager
+            MDScreen:
+                id: home_screen
+                spacing: "8dp"
+                MDTopAppBar:
+                    id: top_app_bar
+                    title: "College"
+                    md_bg_color: app.theme_cls.primary_color
+                    specific_text_color: app.theme_cls.accent_color
+                    pos_hint: {"top": 1}
+                    left_action_items: [["menu", lambda x: root.menu_button()]]
+                    right_action_items: [["account", lambda x: root.login_option()]]
+                
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            Navigation_Drawer:
+                id: content_drawer
